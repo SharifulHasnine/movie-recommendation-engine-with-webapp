@@ -15,7 +15,6 @@ selected_movie_name = st.selectbox(
         movie
     )  
 
-
 def fetch_poster(movie_id):
    response = requests.get(
        "https://api.themoviedb.org/3/movie/{}?api_key=fe43f397d82d22ae399c811a1e76b157".format(movie_id))
@@ -24,6 +23,7 @@ def fetch_poster(movie_id):
         return 'https://image.tmdb.org/t/p/w500/'+data['poster_path']
    except:
        return 'movie-poster.jpeg'
+
 
 def get_movie_recomendation_content_base(title, cosine_similarity=cosine_similarity, indicies=indicies):
     idx = indicies[title.lower().replace(" ", "")]
